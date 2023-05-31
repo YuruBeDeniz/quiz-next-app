@@ -1,7 +1,14 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import Image from "next/image";
+import { Quicksand } from "next/font/google";
+//logo
+import logo from '@/assets/react-quiz-logo.svg';;
+//CSS
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  variable:"--font-quicksand"
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +22,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+       <body className="bg-[#2b2737] p-4">
+        <main className={`${quicksand.variable} font-quicksand max-w-[900px] w-full m-auto flex flex-col items-center`}>
+          <Image className="h-[80px] sm:h-full" src={logo} alt="logo" />
+          {children}
+        </main>
+      </body>
+      
     </html>
   )
 }
